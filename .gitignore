@@ -1,7 +1,9 @@
 .idea/
 .vscode/
+# Backend
 server/node_modules/
-server/dist
+server/dist/
 server/.env
+# Frontend
 client/node_modules/
 client/build/
