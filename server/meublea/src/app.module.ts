@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConnectionOptions } from 'typeorm';
+import { DataSourceOptions } from 'typeorm';
 
 @Module({
   imports: [
@@ -13,7 +15,9 @@ import { ConnectionOptions } from 'typeorm';
       database: 'votre_base_de_donnees',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-    } as ConnectionOptions),
+    } as DataSourceOptions),
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
