@@ -3,7 +3,7 @@
 # Backend
 server/node_modules/
 server/dist/
-server/.env/
+server/.env
 # Frontend
 client/node_modules/
 client/build/
