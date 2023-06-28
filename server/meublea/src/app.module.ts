@@ -11,7 +11,7 @@ import { DataSourceOptions } from 'typeorm';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '1234',
+      password: 'Root@123',
       database: 'meublea',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
