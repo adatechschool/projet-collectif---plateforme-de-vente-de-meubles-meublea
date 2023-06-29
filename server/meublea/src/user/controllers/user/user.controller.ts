@@ -1,5 +1,4 @@
 import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, ValidationError } from '@nestjs/common';
-import { BadRequestException } from '@nestjs/common/exceptions';
 import { CreateUserDto } from 'src/user/dtos/CreateUser.dto';
 import { UpdateUserDto } from 'src/user/dtos/UpdateUser.dto';
 import { UserService } from 'src/user/services/user/user.service';
@@ -39,5 +38,12 @@ export class UserController {
         @Body() updateUserDto: UpdateUserDto
     ) {
         await this.userService.updateUser(id, updateUserDto)
+    }
+
+    @Post('validate-credentials')
+    async validateCredentials(@Body() credentials: {mail: string; password: string;}) {
+        const {mail, password} = credentials;
+
+        // Call the validateCredentials method in the UserService
     }
 }

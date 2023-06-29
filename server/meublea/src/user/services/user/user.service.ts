@@ -41,4 +41,18 @@ export class UserService {
     updateUser(id: number, updateUserDetails: UpdateUserParams) {
         return this.userRepository.update({ id }, { ...updateUserDetails });
     }
+
+    // Login
+    async validateCredentials(mail: string, password: string): Promise<boolean> {
+        // Retrieve the user from the database based on the email
+        const user = await this.userRepository.findOne({mail});
+
+        // If no user is found or the password doesn't match
+        if (!user || user.password !== password) {
+            return false;
+        }
+
+        // If they match
+        return true;
+    }
 }
