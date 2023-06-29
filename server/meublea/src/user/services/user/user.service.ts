@@ -1,4 +1,4 @@
-import { Injectable, ValidationError } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, ValidationError } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { validate } from 'class-validator';
 import { User } from 'src/typeorm/entities/User.entity';
@@ -9,16 +9,24 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class UserService {
 
-    constructor(@InjectRepository(User) private userRepository: Repository<User>) {}
+    constructor(@InjectRepository(User) private userRepository: Repository<User>) { }
 
     findUsers() {
         return this.userRepository.find();
     }
 
 
-    createUser(userDetails: CreateUserParams) {
+    async createUser(userDetails: CreateUserParams) {
+
+        //Check if the mail used to register already exist in DB
+        const existingUser = await this.userRepository.findOne({ where: { mail: userDetails.mail } });
+        if (existingUser) {
+            throw new HttpException('User with this email already exists', HttpStatus.BAD_REQUEST);
+        }
+
+
         // New instance of User based on the userDetails
-        const newUser = this.userRepository.create({ 
+        const newUser = this.userRepository.create({
             ...userDetails
         });
         // Save it into the database. Return a promise.
@@ -43,16 +51,28 @@ export class UserService {
     }
 
     // Login
-    async validateCredentials(mail: string, password: string): Promise<boolean> {
+    async validateCredentials(
+        mail: string,
+        password: string
+    ): Promise<{
+        isValid: boolean;
+        userId?: number;
+        isAdmin?: boolean;
+    }> {
+
         // Retrieve the user from the database based on the email
-        const user = await this.userRepository.findOne({mail});
+        const user = await this.userRepository.findOne({ where: { mail } });
 
         // If no user is found or the password doesn't match
         if (!user || user.password !== password) {
-            return false;
+            return { isValid: false };
+        }
+
+        if (mail === "fleury@test.com") {
+            return { isValid: true, userId: user.id, isAdmin: true };
         }
 
         // If they match
-        return true;
+        return { isValid: true, userId: user.id };
     }
 }

@@ -6,7 +6,7 @@ import { UserService } from 'src/user/services/user/user.service';
 @Controller('user')
 export class UserController {
 
-    constructor(private userService: UserService) {}
+    constructor(private userService: UserService) { }
 
     @Get()
     async getUsers() {
@@ -24,7 +24,7 @@ export class UserController {
             const errorMessages = errors.map(error => Object.values(error.constraints)).flat();
             throw new HttpException({ statusCode: HttpStatus.BAD_REQUEST, message: errorMessages }, HttpStatus.BAD_REQUEST);
         }
-        
+
         // If everything is fine, return a 201
         return this.userService.createUser(createUserDto);
     }
@@ -34,16 +34,36 @@ export class UserController {
     // ParseIntPipe make it a 400 : Bad Request "Validation failed (numeric string is expected)"
     @Put(':id')
     async updateUserById(
-        @Param('id', ParseIntPipe) id: number, 
+        @Param('id', ParseIntPipe) id: number,
         @Body() updateUserDto: UpdateUserDto
     ) {
         await this.userService.updateUser(id, updateUserDto)
     }
 
-    @Post('validate-credentials')
-    async validateCredentials(@Body() credentials: {mail: string; password: string;}) {
-        const {mail, password} = credentials;
+
+    // Login
+    @Post('authentification')
+    async validateCredentials(
+        @Body()
+        credentials: { mail: string; password: string; }
+    ) {
+        const { mail, password } = credentials;
 
         // Call the validateCredentials method in the UserService
+        const { isValid, userId, isAdmin } = await this.userService.validateCredentials(mail, password);
+
+        // Throw a 401 error if mail/password aren't in database
+        if (!isValid) {
+            throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
+        }
+
+        const response: any = { isValid, userId };
+
+        // Check if the user is the admin
+        if (isAdmin) {
+            response.isAdmin = "C\'est Fleury !!!"
+        }
+
+        return response;
     }
 }
