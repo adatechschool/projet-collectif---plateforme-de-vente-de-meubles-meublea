@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nestjs/cli": "^10.0.5"
+    "@nestjs/cli": "^10.0.5",
+    "class-validator": "^0.14.0"
   }
 }
