@@ -5,7 +5,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { UserItem } from './User_item.entity';
+import { User } from './User.entity';
 
 @Entity({ name: 'shop_item' })
 export class ShopItem {
@@ -36,13 +36,10 @@ export class ShopItem {
   @Column({ length: 45 })
   material: string;
 
-  @Column({ length: 45 })
-  state: string;
+  @Column({ name: 'reserved_by' })
+  reserved_by: number;
 
-  @Column({ name: 'user_id' })
-  userId: number;
-
-  @ManyToOne(() => UserItem)
-  @JoinColumn({ name: 'user_id' })
-  user: UserItem;
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'reserved_by' })
+  user: User;
 }
