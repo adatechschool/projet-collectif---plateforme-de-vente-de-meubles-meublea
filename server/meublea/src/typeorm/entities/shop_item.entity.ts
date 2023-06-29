@@ -5,17 +5,17 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { User } from './User.entity';
+import { UserItem } from './User_item.entity';
 
-@Entity({ name: `user_item` })
-export class UserItem {
+@Entity({ name: 'user_item' })
+export class ShopItem {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 45 })
   name: string;
 
-  @Column({ type: `double` })
+  @Column({ type: 'double' })
   price: number;
 
   @Column({ length: 500 })
@@ -24,7 +24,7 @@ export class UserItem {
   @Column({ length: 45 })
   type: string;
 
-  @Column({ type: `blob` })
+  @Column({ type: 'blob' })
   picture: Buffer;
 
   @Column({ length: 45 })
@@ -39,10 +39,10 @@ export class UserItem {
   @Column({ length: 45 })
   state: string;
 
-  @Column({ name: `user_id` })
+  @Column({ name: 'user_id' })
   userId: number;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: `user_id` })
-  user: User;
+  @ManyToOne(() => UserItem)
+  @JoinColumn({ name: 'user_id' })
+  user: UserItem;
 }
