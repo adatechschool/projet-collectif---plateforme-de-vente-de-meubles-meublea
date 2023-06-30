@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import image from "./Images/Magasin.jpg"
 
 const Accueil = () => {
+    useEffect(() => {
+        getAllFurnitures();
+    }, [])
+
+    const getAllFurnitures = async () => {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+        const allFurnitures = await response.json()
+        console.log(allFurnitures)
+    };
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    // fetch('url_api')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //     setData(data);
+    //     })
+    //     .catch(error => {
+    //     console.error(error);
+    //     });
+    // }, []);
+    // console.log(data)
     return (
         <div>
             <div className="Description">
