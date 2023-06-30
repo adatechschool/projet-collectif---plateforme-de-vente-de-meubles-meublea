@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/typeorm/entities/User.entity';
 import { UserItem } from 'src/typeorm/entities/User_item.entity';
-import { Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { CreateUserItemDto } from 'src/user_item/dtos/create_user_item.dto';
 import { CreateUserItemParams } from 'src/utils/type';
 
@@ -37,9 +37,9 @@ export class UserItemService {
     }
   }
 
-  async createUserItem(createUserItemParams: CreateUserItemParams) {
+  async createUserItem(createUserItemDetails: CreateUserItemParams) {
     try {
-      const newUserItem = this.userItemRepository.create(...createUserItemParams);
+      const newUserItem = this.userItemRepository.create({...createUserItemDetails});
 
 
       // Enregistrez le nouvel élément utilisateur dans la base de données
