@@ -50,4 +50,6 @@ export class ShopItem {
   @ManyToOne(() => User)
   @JoinColumn({ name: 'reserved_by' })
   user: User;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 }
