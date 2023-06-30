@@ -6,7 +6,9 @@ import { DataSourceOptions } from 'typeorm';
 import { UserModule } from './user/user.module';
 import { config } from 'dotenv';
 import { join } from 'path';
-
+import { ShopItem } from 'src/typeorm/entities/shop_item.entity';
+import { DisplayItemController } from './display-item.controller';
+import { ShopItemService } from './shop-item.service';
 config({ path: join(__dirname, '../../.env') });
 
 @Module({
@@ -22,8 +24,9 @@ config({ path: join(__dirname, '../../.env') });
       synchronize: true,
     } as DataSourceOptions),
     UserModule,
+    TypeOrmModule.forFeature([ShopItem]),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, DisplayItemController],
+  providers: [AppService, ShopItemService],
 })
 export class AppModule {}

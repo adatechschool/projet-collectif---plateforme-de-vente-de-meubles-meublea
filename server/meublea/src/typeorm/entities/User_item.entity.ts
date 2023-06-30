@@ -42,7 +42,7 @@ export class UserItem {
   @Column({ name: `user_id` })
   userId: number;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: `user_id` })
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user: User;
 }

@@ -4,6 +4,7 @@ import {
   Column,
   ManyToOne,
   JoinColumn,
+  BeforeInsert,
 } from 'typeorm';
 import { User } from './User.entity';
 
@@ -12,32 +13,39 @@ export class ShopItem {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 45 })
+  @Column({ default: '' })
   name: string;
 
-  @Column({ type: 'double' })
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
   price: number;
 
-  @Column({ length: 500 })
+  @Column({ default: '' })
   description: string;
 
-  @Column({ length: 45 })
+  @Column({ default: '' })
   type: string;
 
-  @Column({ type: 'blob' })
+  @Column({ type: 'blob', nullable: true })
   picture: Buffer;
 
-  @Column({ length: 45 })
+  @Column({ default: 'N/A' })
   dimensions: string;
 
-  @Column({ length: 45 })
+  @Column({ default: 'N/A' })
   colour: string;
 
-  @Column({ length: 45 })
+  @Column({ default: 'N/A' })
   material: string;
 
   @Column({ name: 'reserved_by' })
   reserved_by: number;
+
+  @BeforeInsert()
+  setDefaultValues() {
+    if (!this.name) {
+      this.name = ''; // Définition de la valeur par défaut à ''
+    }
+  }
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'reserved_by' })
