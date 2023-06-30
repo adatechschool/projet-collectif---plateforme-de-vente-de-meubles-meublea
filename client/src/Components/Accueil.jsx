@@ -29,7 +29,7 @@ const Accueil = () => {
             </div>
             <div className="meubles">
                 {furnitures.map((user) => (
-                    <div key={user.id}>
+                    <div className="card" key={user.id}>
                         <p>Name: {user.name}</p>
                         <p>Username: {user.username}</p>
                         <p>Email: {user.email}</p>

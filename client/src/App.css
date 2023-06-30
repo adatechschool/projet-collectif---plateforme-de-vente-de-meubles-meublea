@@ -134,11 +134,20 @@
 
 .meubles {
     display: flex;
-    width: 1524px;
+    width: 1510px;
     align-items: center;
     align-content: flex-start;
     gap: 117px 160px;
     flex-wrap: wrap;
+}
+
+.meubles .card {
+    width: 330px;
+    height: 169px;
+    flex-shrink: 0;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    background: #FFF;
 }
 
 input {
