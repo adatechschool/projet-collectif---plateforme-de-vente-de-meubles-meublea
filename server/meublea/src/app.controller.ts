@@ -4,7 +4,7 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 export class AppController {
   constructor() {}
 
-  @Get()
+  @Get('/hello')
   getHello(): string {
     return 'Bienvenue sur le serveur Nest.js !';
   }

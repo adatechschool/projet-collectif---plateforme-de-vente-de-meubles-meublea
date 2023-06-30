@@ -24,6 +24,6 @@ export class User {
   @Column({ type: 'varchar', length: 45, nullable: true })
   last_name: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   adress: string;
 }

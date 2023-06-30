@@ -15,7 +15,7 @@ export class UserItem {
   @Column({ length: 45 })
   name: string;
 
-  @Column({ type: `double` })
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
 
   @Column({ length: 500 })
