@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import Nav from "./Components/Nav.jsx"
 import Profil from "./Components/Profil.jsx"
 import Produits from "./Components/Produits.jsx"
