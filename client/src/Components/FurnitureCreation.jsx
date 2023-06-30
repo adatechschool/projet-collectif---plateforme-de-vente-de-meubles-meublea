@@ -1,6 +1,6 @@
 import React from "react";
 
-const furniture = () => {
+const Furniture = () => {
 
     return (
         <div>
@@ -40,3 +40,5 @@ alert(e.target['my_input'].value)
 }
 
 // If j'appuie sur le bouton : Alert(vous êtes inscrit)
+
+export default Furniture
