@@ -1,4 +1,5 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, ValidationError } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, ValidationError, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { CreateUserDto } from 'src/user/dtos/CreateUser.dto';
 import { UpdateUserDto } from 'src/user/dtos/UpdateUser.dto';
 import { UserService } from 'src/user/services/user/user.service';
@@ -45,7 +46,8 @@ export class UserController {
     @Post('authentification')
     async validateCredentials(
         @Body()
-        credentials: { mail: string; password: string; }
+        credentials: { mail: string; password: string; },
+        @Res() response: Response
     ) {
         const { mail, password } = credentials;
 
@@ -57,13 +59,15 @@ export class UserController {
             throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
         }
 
-        const response: any = { isValid, userId };
+        const responseObject: any = { message: 'Successful connexion', isValid, userId };
 
+        response.cookie('userId', userId, { httpOnly: true});
         // Check if the user is the admin
         if (isAdmin) {
-            response.isAdmin = "C\'est Fleury !!!"
+            responseObject.isAdmin = "C\'est Fleury !!!";
+            response.cookie('Admin', 'Admin-connectee', { httpOnly: true })
         }
 
-        return response;
+        return response.status(HttpStatus.OK).json(responseObject);
     }
 }
