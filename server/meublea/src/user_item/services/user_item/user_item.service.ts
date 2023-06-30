@@ -4,6 +4,7 @@ import { User } from 'src/typeorm/entities/User.entity';
 import { UserItem } from 'src/typeorm/entities/User_item.entity';
 import { Repository } from 'typeorm';
 import { CreateUserItemDto } from 'src/user_item/dtos/create_user_item.dto';
+import { CreateUserItemParams } from 'src/utils/type';
 
 @Injectable()
 export class UserItemService {
@@ -36,17 +37,13 @@ export class UserItemService {
     }
   }
 
-  async createUserItem(createUserItemDto: CreateUserItemDto) {
+  async createUserItem(createUserItemParams: CreateUserItemParams) {
     try {
-      const { user_item_name, user_item_user_id } = createUserItemDto;
+      const newUserItem = this.userItemRepository.create(...createUserItemParams);
 
-      // Créez un nouvel objet UserItem avec les informations fournies
-      const newItem = new UserItem();
-      newItem.name = user_item_name;
-      newItem.userId = user_item_user_id;
 
       // Enregistrez le nouvel élément utilisateur dans la base de données
-      const createdItem = await this.userItemRepository.save(newItem);
+      const createdItem = await this.userItemRepository.save(newUserItem);
 
       return createdItem;
     } catch (error) {
