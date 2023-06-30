@@ -1,7 +1,7 @@
 export class CreateUserItemDto {
   name: string;
   type: string;
-  price: number;
+  price: string;
   dimensions: string;
   userId: number;
 }

@@ -13,7 +13,7 @@ export type UpdateUserParams = {
 export type CreateUserItemParams = {
     name: string;
     type: string;
-    price: number;
+    price: string;
     dimensions: string;
     userId: number;
 };

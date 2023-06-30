@@ -15,8 +15,8 @@ export class UserItem {
   @Column({ length: 45 })
   name: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
-  price: number;
+  @Column({ type: 'decimal', precision: 10, scale: 2, transformer: { from: (value) => parseFloat(value), to: (value) => value.toString() } })
+  price: string;
 
   @Column({ length: 500, nullable: true })
   description: string;

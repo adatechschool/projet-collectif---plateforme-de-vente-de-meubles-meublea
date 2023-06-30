@@ -23,9 +23,9 @@ export class UserItemService {
       });
 
       const mappedUserItems = userItems.map((item) => ({
+        user_item_id: item.id,
         user_item_name: item.name,
         user_item_price: item.price,
-        user_item_id: item.id,
         user_id: item.user.id,
         user_username: item.user.username,
         user_mail: item.user.mail,
@@ -33,7 +33,7 @@ export class UserItemService {
 
       return mappedUserItems;
     } catch (error) {
-      throw new Error('Erreur lors de la récupération des user items.');
+      throw new Error(`Erreur lors de la récupération des user items. ${error.message}`);
     }
   }
 
