@@ -5,11 +5,12 @@ const Accueil = () => {
     useEffect(() => {
         getAllFurnitures();
     }, [])
-
+    const [furnitures, setfurnitures] = useState([])
     const getAllFurnitures = async () => {
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
-        const allFurnitures = await response.json()
+        const allFurnitures = await response.json() //récuperation d'un tableau avec les données de l'api
         console.log(allFurnitures)
+        setfurnitures(allFurnitures)
     };
 
     return (
@@ -27,8 +28,15 @@ const Accueil = () => {
 
             </div>
             <div className="meubles">
-
+                {furnitures.map((user) => (
+                    <div key={user.id}>
+                        <p>Name: {user.name}</p>
+                        <p>Username: {user.username}</p>
+                        <p>Email: {user.email}</p>
+                    </div>
+                ))}
             </div>
+
         </div>
     );
 }
