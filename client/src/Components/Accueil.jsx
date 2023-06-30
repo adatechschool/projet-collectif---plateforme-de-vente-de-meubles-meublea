@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import baniere from "./Images/Magasin.jpg"
+import "./Limite";
 
 const Accueil = () => {
     useEffect(() => {
@@ -28,8 +29,8 @@ const Accueil = () => {
 
             </div>
             <div className="meubles">
-                {furnitures.map((user) => (
-                    <div className="card" key={user.id}>
+                {furnitures.take(9).map((user) => (
+                    <div key={user.id}>
                         <p>Name: {user.name}</p>
                         <p>Username: {user.username}</p>
                         <p>Email: {user.email}</p>
