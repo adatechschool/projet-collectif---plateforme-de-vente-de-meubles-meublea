@@ -15,28 +15,28 @@ export class UserItem {
   @Column({ length: 45 })
   name: string;
 
-  @Column({ type: `double` })
-  price: number;
+  @Column({ type: 'decimal', precision: 10, scale: 2, transformer: { from: (value) => parseFloat(value), to: (value) => value.toString() } })
+  price: string;
 
-  @Column({ length: 500 })
+  @Column({ length: 500, nullable: true })
   description: string;
 
   @Column({ length: 45 })
   type: string;
 
-  @Column({ type: `blob` })
+  @Column({ type: `blob`, nullable: true })
   picture: Buffer;
 
   @Column({ length: 45 })
   dimensions: string;
 
-  @Column({ length: 45 })
+  @Column({ length: 45, nullable: true })
   colour: string;
 
-  @Column({ length: 45 })
+  @Column({ length: 45, nullable: true })
   material: string;
 
-  @Column({ length: 45 })
+  @Column({ length: 45, nullable: true })
   state: string;
 
   @Column({ name: `user_id` })

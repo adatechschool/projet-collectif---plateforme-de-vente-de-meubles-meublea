@@ -9,3 +9,11 @@ export type UpdateUserParams = {
     mail: string;
     password: string;
 };
+
+export type CreateUserItemParams = {
+    name: string;
+    type: string;
+    price: string;
+    dimensions: string;
+    userId: number;
+};
