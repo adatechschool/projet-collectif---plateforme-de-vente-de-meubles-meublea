@@ -55,7 +55,7 @@
 .Description .cadre {
     position: absolute;
     left: 54px;
-    bottom: 47px;
+    bottom: 30px;
     width: 762px;
     height: 384px;
     background: rgba(195, 195, 195, 0.60);
@@ -64,8 +64,8 @@
 .Description .cadre p {
     display: flex;
     position: absolute;
-    left: 115px;
-    bottom: 122px;
+    left: 60px;
+    bottom: 50px;
     width: 649px;
     height: 231px;
     flex-direction: column;
