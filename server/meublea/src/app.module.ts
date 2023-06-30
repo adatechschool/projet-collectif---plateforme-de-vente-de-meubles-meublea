@@ -11,6 +11,7 @@ import { ShopItem } from 'src/typeorm/entities/shop_item.entity';
 import { DisplayItemController } from './display-item.controller';
 import { ShopItemService } from './shop-item.service';
 config({ path: join(__dirname, '../../.env') });
+import { ShopItemModule } from './shop-item/shop-item.module';
 
 config({ path: join(__dirname, '../../.env') });
 @Module({
@@ -28,6 +29,7 @@ config({ path: join(__dirname, '../../.env') });
     UserModule,
     TypeOrmModule.forFeature([ShopItem]),
     UserItemModule,
+    ShopItemModule,
   ],
   controllers: [AppController, DisplayItemController],
   providers: [AppService, ShopItemService],
