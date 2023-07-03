@@ -40,13 +40,6 @@ export class UserItem {
   @Column({ length: 45, nullable: true })
   state: string;
 
-  @Column({ name: 'shop_item_id' })
-  shopItemId: number;
-
-  @ManyToOne(() => ShopItem)
-  @JoinColumn({ name: 'shop_item_id' })
-  shopItem: ShopItem;
-
   @Column({ name: `user_id` })
   userId: number;
 
