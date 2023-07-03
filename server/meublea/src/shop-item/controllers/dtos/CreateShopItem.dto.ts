@@ -7,6 +7,5 @@ export class CreateShopItemDto {
   dimensions: string;
   colour: string;
   material: string;
-  state: string;
-  createdAt: Date;
+  reserved_by: number;
 }

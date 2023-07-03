@@ -26,8 +26,7 @@ export type CreateShopItemParams = {
   dimensions: string;
   colour: string;
   material: string;
-  state: string;
-  createdAt: Date;
+  reserved_by: number;
 };
 
 export class UpdateShopItemParams {
@@ -39,6 +38,5 @@ export class UpdateShopItemParams {
   dimensions: string;
   colour: string;
   material: string;
-  state: string;
-  createdAt: Date;
+  reserved_by: number;
 }

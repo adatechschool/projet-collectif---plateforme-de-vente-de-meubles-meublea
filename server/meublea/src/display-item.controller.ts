@@ -6,7 +6,7 @@ import { CreateItemDto } from './create-item.dto';
 
 import { ShopItem } from './typeorm/entities/shop_item.entity';
 
-@Controller('main/display_item')
+@Controller('main/display-item')
 export class DisplayItemController {
   constructor(private readonly shopItemService: ShopItemService) {}
 
@@ -25,8 +25,6 @@ export class DisplayItemController {
 
   @Post()
   async createItem(@Body() itemData: CreateItemDto) {
-    // Assurez-vous de fournir une valeur valide pour reservedBy
-    itemData.reservedBy = 1; // Remplacez 1 par l'ID de l'utilisateur existantt
 
     const newItem = await this.shopItemService.createItem(itemData);
 

@@ -6,7 +6,6 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { User } from './User.entity';
-import { ShopItem } from './shop_item.entity';
 
 @Entity({ name: `user_item` })
 export class UserItem {
@@ -39,13 +38,6 @@ export class UserItem {
 
   @Column({ length: 45, nullable: true })
   state: string;
-
-  @Column({ name: 'shop_item_id' })
-  shopItemId: number;
-
-  @ManyToOne(() => ShopItem)
-  @JoinColumn({ name: 'shop_item_id' })
-  shopItem: ShopItem;
 
   @Column({ name: `user_id` })
   userId: number;
