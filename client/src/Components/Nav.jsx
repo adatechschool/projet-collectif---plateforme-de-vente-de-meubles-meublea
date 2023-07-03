@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "./Images/Logo.png"
 
-
+// Permet de lier les différentes pages à la page de navigation
 const Nav = () => {
     return (
         <nav className="Header">

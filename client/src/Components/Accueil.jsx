@@ -29,6 +29,7 @@ const Accueil = () => {
 
             </div>
             <div className="meubles">
+                {/* Le nombre en paramétre est le nombre d'éléments qui s'affichera sur la page d'accueil */}
                 {furnitures.take(9).map((user) => (
                     <div key={user.id}>
                         <p>Name: {user.name}</p>
