@@ -37,7 +37,7 @@ export class ShopItem {
   @Column({ default: 'N/A' })
   material: string;
 
-  @Column({ name: 'reserved_by' })
+  @Column({ name: 'reserved_by', nullable: true })
   reserved_by: number;
 
   @BeforeInsert()
@@ -50,6 +50,7 @@ export class ShopItem {
   @ManyToOne(() => User)
   @JoinColumn({ name: 'reserved_by' })
   user: User;
+
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
