@@ -3,7 +3,7 @@ export class UpdateShopItemDto {
   price: number;
   description: string;
   type: string;
-  picture: Buffer;
+  picture: string;
   dimensions: string;
   colour: string;
   material: string;

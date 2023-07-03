@@ -25,8 +25,8 @@ export class ShopItem {
   @Column({ default: '' })
   type: string;
 
-  @Column({ type: 'blob', nullable: true })
-  picture: Buffer;
+  @Column({ nullable: true })
+  picture: string;
 
   @Column({ default: 'N/A' })
   dimensions: string;

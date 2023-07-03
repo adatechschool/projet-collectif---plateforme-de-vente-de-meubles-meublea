@@ -14,11 +14,12 @@ config({ path: join(__dirname, '../../.env') });
 import { ShopItemModule } from './shop-item/shop-item.module';
 
 config({ path: join(__dirname, '../../.env') });
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 3306,
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,

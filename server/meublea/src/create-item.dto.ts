@@ -4,7 +4,7 @@ export class CreateItemDto {
   name: string;
   type: string;
   price: number;
-  picture: Buffer;
+  picture: string;
   description: string;
   dimensions: string;
   colour: string;

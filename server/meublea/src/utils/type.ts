@@ -22,7 +22,7 @@ export type CreateShopItemParams = {
   price: number;
   description: string;
   type: string;
-  picture: Buffer;
+  picture: string;
   dimensions: string;
   colour: string;
   material: string;
@@ -35,7 +35,7 @@ export class UpdateShopItemParams {
   price: number;
   description: string;
   type: string;
-  picture: Buffer;
+  picture: string;
   dimensions: string;
   colour: string;
   material: string;
