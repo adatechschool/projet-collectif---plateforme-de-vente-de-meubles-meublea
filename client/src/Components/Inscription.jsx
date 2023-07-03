@@ -43,6 +43,7 @@ const Inscription = () => {
                 {email.length == 0 && <p className="errorMessage">Veuillez renseigner ce champ</p>}
                 <label htmlFor="password">Mot de passe *</label>
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)} id="password" required placeholder="************" />
+                {/* Version raccourcie du if (else après "&&") */}
                 {password.length == 0 && <p className="errorMessage">Veuillez renseigner ce champ</p>}
                 <label htmlFor="password2">Confirmez votre mot de passe *</label>
                 <input type="password" value={password2} id="password2" onChange={e => setPassword2(e.target.value)} required placeholder="************" />
