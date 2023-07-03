@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import baniere from "./Images/Magasin.jpg"
+import baniere from "./Images/Magasin.jpg";
+import img from "./Images/image-2.png"
 import "./Limite";
 
 const Accueil = () => {
@@ -30,10 +31,11 @@ const Accueil = () => {
             </div>
             <div className="meubles">
                 {furnitures.take(9).map((user) => (
-                    <div key={user.id}>
-                        <p>Name: {user.name}</p>
-                        <p>Username: {user.username}</p>
-                        <p>Email: {user.email}</p>
+                    <div className="card" key={user.id}>
+                        <img src={img} alt="test photo" />
+                        <p className="name">Name: {user.name}</p>
+                        <p className="type">Username: {user.username}</p>
+                        <p className="prix">Email: {user.email}</p>
                     </div>
                 ))}
             </div>
