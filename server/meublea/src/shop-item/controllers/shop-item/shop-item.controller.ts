@@ -7,6 +7,7 @@ import {
   Param,
   ParseIntPipe,
   Delete,
+  Patch,
 } from '@nestjs/common';
 import { ShopItemService } from 'src/shop-item/service/shop-item/shop-item.service';
 import { CreateShopItemDto } from 'src/shop-item/controllers/dtos/CreateShopItem.dto';
@@ -14,7 +15,7 @@ import { UpdateShopItemDto } from 'src/shop-item/controllers/dtos/UpdateShopItem
 
 @Controller('shop-item')
 export class ShopItemController {
-  constructor(private shopItemService: ShopItemService) {}
+  constructor(private shopItemService: ShopItemService) { }
 
   @Get()
   getShopItems() {
@@ -25,6 +26,9 @@ export class ShopItemController {
   createShopItem(@Body() createShopItemDto: CreateShopItemDto) {
     return this.shopItemService.createShopItem(createShopItemDto);
   }
+
+  @Patch(':id')
+
 
   @Put(':id')
   async updateShopItemById(

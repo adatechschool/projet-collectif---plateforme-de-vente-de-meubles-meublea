@@ -10,7 +10,6 @@ import { join } from 'path';
 import { ShopItem } from 'src/typeorm/entities/shop_item.entity';
 import { DisplayItemController } from './display-item.controller';
 import { ShopItemService } from './shop-item.service';
-config({ path: join(__dirname, '../../.env') });
 import { ShopItemModule } from './shop-item/shop-item.module';
 
 config({ path: join(__dirname, '../../.env') });
@@ -35,4 +34,4 @@ config({ path: join(__dirname, '../../.env') });
   controllers: [AppController, DisplayItemController],
   providers: [AppService, ShopItemService],
 })
-export class AppModule {}
+export class AppModule { }

@@ -27,7 +27,6 @@ const Accueil = () => {
                 <div></div>
             </div>
             <div className="decoration">
-
             </div>
             <div className="meubles">
                 {/* Le nombre en paramétre est le nombre d'éléments qui s'affichera sur la page d'accueil */}
@@ -40,7 +39,6 @@ const Accueil = () => {
                     </div>
                 ))}
             </div>
-
         </div>
     );
 }
