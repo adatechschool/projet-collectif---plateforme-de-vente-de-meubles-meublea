@@ -1,27 +1,41 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const Connexion = () => {
     // Déclaration des variables d'état (hooks)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    // Si l'user est déjà connecté, il ne peut pas aller sur la page Connexion et est renvoyé vers la page d'Accueil
+    useEffect(() => {
+        if (Cookies.get("userId")) {
+          navigate("/");
+        }
+      }, [navigate]);
 
     // Gère la requête POST (e = event)
     const handleSubmit = async (e) => {
         // Empêche la page de se rafraîchir automatiquement
         e.preventDefault();
 
-        const id = { email, password };
+        const id = { mail: email, password: password };
 
-        const response = await fetch("localhost:3000/user/authentification", {
+        const response = await fetch("http://localhost:3000/user/authentification", {
             // URL de test du POST :
             // const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(id)
+            body: JSON.stringify(id),
+            credentials: 'include'
         })
         const result = await response.json();
-        console.log(result);
+
+        // Si la connexion a réussi, l'user est renvoyé vers la page d'Accueil
+        if (result.message === 'Successful connexion'){
+            navigate("/");
+        }
     }
 
     return (

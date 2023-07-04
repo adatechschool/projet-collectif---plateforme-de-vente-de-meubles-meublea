@@ -1,0 +1,137 @@
+.profile-page {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.image-block {
+  flex: 20%;
+  padding: 10px;
+}
+
+.details-block {
+  flex: 80%;
+  padding: 10px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.details-block h2 {
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #a11a1a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.button:hover {
+  background-color: #c02c2c;
+}
+
+.button:active {
+  background-color: #6b1111;
+}
+
+.button.button-icon {
+  position: relative;
+}
+
+.button.button-icon .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px; /* Ajustez la taille de l'icône selon vos besoins */
+  height: auto;
+}
+
+.button-block {
+  display: flex; /* Ajouter cette propriété pour afficher les boutons côte à côte */
+  align-items: center; /* Centrer verticalement les boutons */
+}
+
+.button-block .button {
+  margin-right: 10px; /* Ajouter une marge droite entre les boutons */
+}
+
+.left-menu-wrapper {
+  flex: 1;
+}
+
+.right-menu-wrapper {
+  flex: 3;
+}
+.left-menu-wrapper.edit-mode {
+  width: 300px;
+}
+.hidden {
+  display: none;
+}
+.label-button {
+  display: flex; /* Utiliser flex pour afficher le label et le bouton en ligne */
+  align-items: center; /* Centrer verticalement les éléments */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #a11a1a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 9px;
+  margin-right: 2px;
+  margin-left: -4cm;
+  height: 4%;
+}
+
+.label-button:hover {
+  background-color: #c02c2c;
+}
+
+.label-button:active {
+  background-color: #6b1111;
+}
+
+.label-button input {
+  display: none; /* Masquer l'input de fichier */
+}
+
+.label-button span {
+  margin-left: 5px; /* Ajouter une marge à gauche pour séparer le texte du bouton */
+}
+
+.label-button img {
+  width: 20px; /* Ajuster la taille de l'icône selon vos besoins */
+  height: auto;
+  margin-right: 5px; /* Ajouter une marge à droite pour séparer l'icône du texte */
+}

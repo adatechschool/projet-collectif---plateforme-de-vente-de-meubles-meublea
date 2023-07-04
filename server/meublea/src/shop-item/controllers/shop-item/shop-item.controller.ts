@@ -23,6 +23,18 @@ export class ShopItemController {
     return this.shopItemService.findShopItem();
   }
 
+  // Permet de récuperer certaines informations d'un shop-item uniquement par l'Administrateur du site
+  @Get('admin')
+  async getDetailsShopItemsForAdmin(){
+    const details = await this.shopItemService.findShopItem();
+    return details.map((detail) => ({
+      name : detail.name,
+      price : detail.price,
+      id: detail.id,
+      reserved_by : detail.reserved_by,
+    }))
+  }
+
   @Post()
   createShopItem(@Body() createShopItemDto: CreateShopItemDto) {
     return this.shopItemService.createShopItem(createShopItemDto);

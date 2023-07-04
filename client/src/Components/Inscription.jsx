@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const Inscription = () => {
     // Déclaration des variables d'état (hooks)
@@ -11,6 +12,14 @@ const Inscription = () => {
     const [lastName, setLastName] = useState("");
     const [telephoneNumber, setTelephoneNumber] = useState("");
     const [address, setAddress] = useState("");
+    const navigate = useNavigate();
+
+    // Si l'user est déjà connecté, il ne peut pas aller sur la page Connexion et est renvoyé vers la page d'Accueil
+    useEffect(() => {
+        if (Cookies.get("userId")) {
+          navigate("/");
+        }
+      }, [navigate]);
 
     // Gère la requête POST (e = event)
     const handleSubmit = async (e) => {
