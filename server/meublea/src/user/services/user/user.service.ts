@@ -4,7 +4,7 @@ import { validate } from 'class-validator';
 import { User } from 'src/typeorm/entities/User.entity';
 import { CreateUserDto } from 'src/user/dtos/CreateUser.dto';
 import { CreateUserParams, UpdateUserParams } from 'src/utils/type';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 
 @Injectable()
 export class UserService {
@@ -15,6 +15,9 @@ export class UserService {
         return this.userRepository.find();
     }
 
+    findUsersById(id: number) {
+        return this.userRepository.findOne({ where: { id } });
+    }
 
     async createUser(userDetails: CreateUserParams) {
 
@@ -48,6 +51,10 @@ export class UserService {
 
     updateUser(id: number, updateUserDetails: UpdateUserParams) {
         return this.userRepository.update({ id }, { ...updateUserDetails });
+    }
+
+    async deleteUser(id: number): Promise<void> {
+        await this.userRepository.delete(id);
     }
 
     // Login

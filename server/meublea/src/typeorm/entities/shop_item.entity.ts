@@ -16,7 +16,7 @@ export class ShopItem {
   @Column({ default: '' })
   name: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0, transformer: { from: (value) => parseFloat(value), to: (value) => value.toString()} })
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0, transformer: { from: (value) => parseFloat(value), to: (value) => value.toString() } })
   price: number;
 
   @Column({ default: '' })
@@ -47,7 +47,7 @@ export class ShopItem {
     }
   }
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: "CASCADE" })
   @JoinColumn({ name: 'reserved_by' })
   user: User;
 
