@@ -27,7 +27,7 @@ const Nav = () => {
         <nav className="Header">
             <div className="Logo">
                 <img src={logo} alt="Logo entreprise" />
-                <h2>AMPUNV</h2>
+                <h2>Meublea</h2>
             </div>
             {/* Si l'utilisateur est connecté, affiche cette navbar */}
             {isLoggedIn ? (

@@ -4,26 +4,48 @@ import {
   Post,
   Body,
   Put,
+  Patch,
   Param,
   ParseIntPipe,
   Delete,
 } from '@nestjs/common';
 import { ShopItemService } from 'src/shop-item/service/shop-item/shop-item.service';
-import { CreateShopItemDto } from 'src/shop-item/controllers/dtos/CreateShopItem.dto';
-import { UpdateShopItemDto } from 'src/shop-item/controllers/dtos/UpdateShopItem.dto';
+import { CreateShopItemDto } from 'src/shop-item/dtos/CreateShopItem.dto';
+import { UpdateShopItemDto } from 'src/shop-item/dtos/UpdateShopItem.dto';
+import { PatchShopItemDto } from 'src/shop-item/dtos/PatchShopItem.dto';
 
 @Controller('shop-item')
 export class ShopItemController {
-  constructor(private shopItemService: ShopItemService) {}
+  constructor(private shopItemService: ShopItemService) { }
 
   @Get()
   getShopItems() {
     return this.shopItemService.findShopItem();
   }
 
+  // Permet de récuperer certaines informations d'un shop-item uniquement par l'Administrateur du site
+  @Get('admin')
+  async getDetailsShopItemsForAdmin(){
+    const details = await this.shopItemService.findShopItem();
+    return details.map((detail) => ({
+      name : detail.name,
+      price : detail.price,
+      id: detail.id,
+      reserved_by : detail.reserved_by,
+    }))
+  }
+
   @Post()
   createShopItem(@Body() createShopItemDto: CreateShopItemDto) {
     return this.shopItemService.createShopItem(createShopItemDto);
+  }
+
+  @Patch(':id')
+  async patchShopItemById(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() patchShopItemDto: PatchShopItemDto,
+  ) {
+    await this.shopItemService.patchShopItem(id, patchShopItemDto);
   }
 
   @Put(':id')
@@ -33,7 +55,7 @@ export class ShopItemController {
   ) {
     await this.shopItemService.updateShopItem(id, updateShopItemDto);
   }
-  
+
   @Delete(':id') // Ajoutez la méthode DELETE avec l'annotation @Delete et le paramètre 'id'
   async deleteShopItemById(@Param('id', ParseIntPipe) id: number) {
     await this.shopItemService.deleteShopItem(id);
