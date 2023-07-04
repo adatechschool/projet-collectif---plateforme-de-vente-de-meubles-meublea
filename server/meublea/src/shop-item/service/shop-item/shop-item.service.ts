@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateShopItemDto } from 'src/shop-item/controllers/dtos/CreateShopItem.dto';
+import { CreateShopItemDto } from 'src/shop-item/dtos/CreateShopItem.dto';
 import { ShopItem } from 'src/typeorm/entities/shop_item.entity';
 import { Repository } from 'typeorm';
 import { CreateShopItemParams } from 'src/utils/type';
@@ -11,7 +11,7 @@ export class ShopItemService {
   constructor(
     @InjectRepository(ShopItem)
     private ShopItemRepository: Repository<ShopItem>,
-  ) {}
+  ) { }
 
   findShopItem() {
     return this.ShopItemRepository.find();
