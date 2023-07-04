@@ -3,8 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateShopItemDto } from 'src/shop-item/dtos/CreateShopItem.dto';
 import { ShopItem } from 'src/typeorm/entities/shop_item.entity';
 import { Repository } from 'typeorm';
-import { CreateShopItemParams } from 'src/utils/type';
-import { UpdateShopItemParams } from 'src/utils/type';
+import { CreateShopItemParams, UpdateShopItemParams, PatchShopItemParams } from 'src/utils/type';
 
 @Injectable()
 export class ShopItemService {
@@ -23,6 +22,10 @@ export class ShopItemService {
       createdAt: new Date(),
     });
     return this.ShopItemRepository.save(newShopItem);
+  }
+
+  patchShopItem(id: number, patchShopItemDetails: PatchShopItemParams) {
+    return this.ShopItemRepository.update({ id }, { ...patchShopItemDetails });
   }
 
   updateShopItem(id: number, updateShopItemDetails: UpdateShopItemParams) {
