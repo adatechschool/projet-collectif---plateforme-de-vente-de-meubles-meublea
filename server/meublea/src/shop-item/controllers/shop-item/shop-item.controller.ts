@@ -9,12 +9,12 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ShopItemService } from 'src/shop-item/service/shop-item/shop-item.service';
-import { CreateShopItemDto } from 'src/shop-item/controllers/dtos/CreateShopItem.dto';
-import { UpdateShopItemDto } from 'src/shop-item/controllers/dtos/UpdateShopItem.dto';
+import { CreateShopItemDto } from 'src/shop-item/dtos/CreateShopItem.dto';
+import { UpdateShopItemDto } from 'src/shop-item/dtos/UpdateShopItem.dto';
 
 @Controller('shop-item')
 export class ShopItemController {
-  constructor(private shopItemService: ShopItemService) {}
+  constructor(private shopItemService: ShopItemService) { }
 
   @Get()
   getShopItems() {
