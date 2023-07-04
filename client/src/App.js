@@ -1,13 +1,13 @@
-import Nav from "./Components/Nav.jsx"
-import Profil from "./Components/Profil.jsx"
-import Produits from "./Components/Produits.jsx"
-import Inscription from "./Components/Inscription.jsx"
-import Contact from "./Components/Contact.jsx"
-import Connexion from "./Components/Connexion.jsx"
-import Admin from "./Components/Admin.jsx"
-import Accueil from "./Components/Accueil.jsx"
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import Nav from "./Components/Nav.jsx";
+import Profil from "./Components/Profil.jsx";
+import Produits from "./Components/Produits.jsx";
+import Inscription from "./Components/Inscription.jsx";
+import Contact from "./Components/Contact.jsx";
+import Connexion from "./Components/Connexion.jsx";
+import Accueil from "./Components/Accueil.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import "./profil.css";
 
 function App() {
   return (
