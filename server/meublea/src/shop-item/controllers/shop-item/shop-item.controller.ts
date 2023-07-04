@@ -33,6 +33,7 @@ export class ShopItemController {
   ) {
     await this.shopItemService.updateShopItem(id, updateShopItemDto);
   }
+  
   @Delete(':id') // Ajoutez la méthode DELETE avec l'annotation @Delete et le paramètre 'id'
   async deleteShopItemById(@Param('id', ParseIntPipe) id: number) {
     await this.shopItemService.deleteShopItem(id);
