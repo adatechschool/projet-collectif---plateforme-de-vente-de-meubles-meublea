@@ -5,6 +5,7 @@ import Inscription from "./Components/Inscription.jsx";
 import Contact from "./Components/Contact.jsx";
 import Connexion from "./Components/Connexion.jsx";
 import Accueil from "./Components/Accueil.jsx";
+import FurnitureCreation from "./Components/FurnitureCreation.jsx"; // Nouvelle importation
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./profil.css";
@@ -22,6 +23,8 @@ function App() {
           <Route path="/Connexion" element={<Connexion />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Admin" element={<Admin />} />
+          <Route path="/FurnitureCreation" element={<FurnitureCreation />} /> //
+          Nouvelle route
         </Routes>
       </Router>
     </div>
