@@ -13,7 +13,7 @@ export class UserItemService {
     private userRepository: Repository<User>,
     @InjectRepository(UserItem)
     private userItemRepository: Repository<UserItem>,
-  ) {}
+  ) { }
 
   async getUserItems(): Promise<any[]> {
     try {
@@ -25,7 +25,7 @@ export class UserItemService {
       const mappedUserItems = userItems.map((item) => ({
         user_item_id: item.id,
         user_item_name: item.name,
-        user_item_price: item.price,
+        //user_item_price: item.price,
         user_id: item.user.id,
         user_username: item.user.username,
         user_mail: item.user.mail,
@@ -39,7 +39,7 @@ export class UserItemService {
 
   async createUserItem(createUserItemDetails: CreateUserItemParams) {
     try {
-      const newUserItem = this.userItemRepository.create({...createUserItemDetails});
+      const newUserItem = this.userItemRepository.create({ ...createUserItemDetails });
 
 
       // Enregistrez le nouvel élément utilisateur dans la base de données
@@ -49,5 +49,9 @@ export class UserItemService {
     } catch (error) {
       throw new Error(`Erreur lors de la création de l\'élément utilisateur. ${error.message}`);
     }
+  }
+
+  async deleteUserItem(id: number): Promise<void> {
+    await this.userItemRepository.delete(id);
   }
 }
