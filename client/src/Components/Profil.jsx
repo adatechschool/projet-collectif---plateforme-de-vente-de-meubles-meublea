@@ -144,10 +144,7 @@ const RightMenu = ({
           </>
         )}
         {!editMode ? (
-          <Link
-            to=".src/Components/FurnitureCreation"
-            className="button button-icon"
-          >
+          <Link to="/FurnitureCreation" className="button button-icon">
             Vous voulez vendre vos meubles dans notre magasin ? Cliquez-ici !
           </Link>
         ) : null}

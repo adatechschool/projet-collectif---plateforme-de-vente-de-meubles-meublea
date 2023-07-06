@@ -4,11 +4,12 @@ import baniere from "./Images/Magasin.jpg";
 import img from "./Images/image-2.png";
 import "./Limite";
 const Accueil = () => {
-const [furnitures, setFurnitures] = useState([]);
-  
-useEffect(() => {
+  const [furnitures, setFurnitures] = useState([]);
+
+  useEffect(() => {
     getAllFurnitures();
   }, []);
+
   const getAllFurnitures = async () => {
     const response = await fetch(`http://localhost:3000/shop-item/`, {
       method: "GET",
@@ -18,10 +19,12 @@ useEffect(() => {
     console.log(allFurnitures);
     setFurnitures(allFurnitures);
   };
+
   const goToProfile = (ShopItem) => {
     // Code pour naviguer vers la page du profil de l'utilisateur avec l'ID spécifié
     console.log("Navigating to profile page of user:", ShopItem);
   };
+  
   return (
     <div className="accueil-container">
       <div className="header-container">{/* Contenu du header */}</div>
@@ -59,4 +62,5 @@ useEffect(() => {
     </div>
   );
 };
+
 export default Accueil;

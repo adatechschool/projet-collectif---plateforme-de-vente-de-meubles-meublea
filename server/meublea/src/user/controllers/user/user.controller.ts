@@ -70,7 +70,7 @@ export class UserController {
         // Pour des raisons de sécurité, on utiliserait { httpOnly: true } en plus dans le cookie pour qu'il n'y ait pas de script qui puisse être exécuté côté client
         // Par manque de temps on passera sur cette question de sécurité
         response.cookie('userId', userId);
-          
+
         // Check if the user is the admin
         if (isAdmin) {
             responseObject.isAdmin = "C\'est Fleury !!!";
