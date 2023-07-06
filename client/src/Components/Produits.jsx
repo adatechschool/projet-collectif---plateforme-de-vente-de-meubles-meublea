@@ -57,11 +57,11 @@ const Produits = () => {
                 <p className="name">{user.name}</p>
                 <p className="type">type : {}</p>
                 <p className="prix">prix : {}</p>
-                {/* <a href={`./DetailProduit/${user.id}`} className="buy-button">
+                {/*<Link to="/DetailProduit">Acheter</Link>*/}
 
+                <a href={`/DetailProduit/${user.id}`} className="buy-button">
                   Acheter
-                </a> */}
-                <Link to="/DetailProduit">Acheter</Link>
+                </a>
               </div>
             </div>
           ))}

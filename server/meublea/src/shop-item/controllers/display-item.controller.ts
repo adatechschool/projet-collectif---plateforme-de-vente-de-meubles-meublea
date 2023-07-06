@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 
-import { ShopItemService } from './shop-item.service';
+import { ShopItemService } from '../../shop-item.service';
 
-import { CreateItemDto } from './create-item.dto';
+import { CreateItemDto } from '../../create-item.dto';
 
-import { ShopItem } from './typeorm/entities/shop_item.entity';
+import { ShopItem } from '../../typeorm/entities/shop_item.entity';
 
 @Controller('main/display-item')
 export class DisplayItemController {
-  constructor(private readonly shopItemService: ShopItemService) {}
+  constructor(private readonly shopItemService: ShopItemService) { }
 
   @Get()
   async displayItems() {

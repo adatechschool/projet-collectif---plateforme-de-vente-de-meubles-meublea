@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSourceOptions } from 'typeorm';
@@ -8,9 +7,8 @@ import { UserItemModule } from './user_item/user_item.module';
 import { config } from 'dotenv';
 import { join } from 'path';
 import { ShopItem } from 'src/typeorm/entities/shop_item.entity';
-import { DisplayItemController } from './display-item.controller';
+import { DisplayItemController } from './shop-item/controllers/display-item.controller';
 import { ShopItemService } from './shop-item.service';
-config({ path: join(__dirname, '../../.env') });
 import { ShopItemModule } from './shop-item/shop-item.module';
 
 config({ path: join(__dirname, '../../.env') });
@@ -32,7 +30,7 @@ config({ path: join(__dirname, '../../.env') });
     UserItemModule,
     ShopItemModule,
   ],
-  controllers: [AppController, DisplayItemController],
+  controllers: [DisplayItemController],
   providers: [AppService, ShopItemService],
 })
-export class AppModule {}
+export class AppModule { }

@@ -29,6 +29,10 @@ export type CreateShopItemParams = {
   reserved_by: number;
 };
 
+export class PatchShopItemParams {
+  reserved_by: number;
+}
+
 export class UpdateShopItemParams {
   name: string;
   price: number;

@@ -13,7 +13,7 @@ export class UserItemService {
     private userRepository: Repository<User>,
     @InjectRepository(UserItem)
     private userItemRepository: Repository<UserItem>,
-  ) {}
+  ) { }
 
   async getUserItems(): Promise<any[]> {
     try {
@@ -39,7 +39,7 @@ export class UserItemService {
 
   async createUserItem(createUserItemDetails: CreateUserItemParams) {
     try {
-      const newUserItem = this.userItemRepository.create({...createUserItemDetails});
+      const newUserItem = this.userItemRepository.create({ ...createUserItemDetails });
 
 
       // Enregistrez le nouvel élément utilisateur dans la base de données
@@ -49,5 +49,9 @@ export class UserItemService {
     } catch (error) {
       throw new Error(`Erreur lors de la création de l\'élément utilisateur. ${error.message}`);
     }
+  }
+
+  async deleteUserItem(id: number): Promise<void> {
+    await this.userItemRepository.delete(id);
   }
 }

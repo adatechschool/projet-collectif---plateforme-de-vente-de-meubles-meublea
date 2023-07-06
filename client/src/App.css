@@ -7,10 +7,11 @@
   background: rgb(215 209 209 / 73%);
   overflow-x: hidden;
 }
+
 .Header {
   display: flex;
-  padding: 2px 40px;
-  padding-bottom: 10px;
+  height: 78px;
+  padding: 12px 40px;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
@@ -24,14 +25,17 @@
   width: 100%;
   z-index: 999;
 }
+
 .Header .Logo {
   display: flex;
   align-items: center;
 }
+
 .Header .Logo img {
   width: 50px;
   height: 50px;
 }
+
 .Header .Logo h2 {
   display: flex;
   width: 130px;
@@ -46,6 +50,7 @@
   font-weight: 400;
   line-height: normal;
 }
+
 .Header a {
   color: #000;
   font-size: 18px;
@@ -55,6 +60,7 @@
   line-height: normal;
   text-decoration: none;
 }
+
 .Header .links {
   display: flex;
   width: 716px;
@@ -62,6 +68,7 @@
   align-items: center;
   flex-shrink: 0;
 }
+
 .Header .log {
   display: flex;
   padding: 12px;
@@ -70,6 +77,7 @@
   border-radius: 8px;
   background: #000;
 }
+
 .Header .log a {
   color: #fff;
   font-size: 14px;
@@ -78,6 +86,7 @@
   font-weight: 600;
   line-height: normal;
 }
+
 .header-container {
   position: fixed;
   top: 0;
@@ -85,12 +94,14 @@
   width: 100%;
   background-color: #fff; /* Couleur de fond du header */
   z-index: 999; /* Pour s'assurer que le header s'affiche par-dessus le reste du contenu */
+
 }
 .Description img {
   width: 100%;
   border-bottom: 3px solid #000;
   background: lightgray 50% / cover no-repeat;
 }
+
 .Description .cadre {
   position: absolute;
   left: 54px;
@@ -99,6 +110,7 @@
   height: 384px;
   background: rgba(195, 195, 195, 0.6);
 }
+
 .Description .cadre p {
   display: flex;
   position: absolute;
@@ -116,6 +128,7 @@
   font-weight: 700;
   line-height: 24px;
 }
+
 .filtres {
   display: flex;
   height: 99px;
@@ -124,24 +137,28 @@
   align-items: center;
   flex-shrink: 0;
 }
+
 .filtres div {
   width: 1384px;
   height: 79px;
   background: #d9d9d9;
   flex-shrink: 0;
 }
+
 .decoration {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 23px;
 }
+
 .meubles {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
 }
+
 .card {
   flex-basis: calc(
     30.33% - 9px
@@ -149,11 +166,13 @@
   margin: 28px 10px;
   display: flex;
 }
+
 .card-image {
   width: 40%;
   display: flex;
   align-items: center;
 }
+
 .card-image img {
   height: 100%;
   background-image: linear-gradient(
@@ -162,6 +181,7 @@
     rgba(255, 255, 255, 1)
   );
 }
+
 .card-content {
   width: 60%;
   padding: 10px;
@@ -169,6 +189,7 @@
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
 }
+
 .card-content .name {
   color: #000;
   text-align: center;
@@ -176,8 +197,76 @@
   font-family: Amaranth;
   font-style: normal;
   font-weight: bold;
+/*
   line-height: normal;
 }
+.card-content .type,
+.card-content .prix {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+*/
+  width: 1510px;
+  align-items: center;
+  align-content: flex-start;
+  gap: 120px 90px;
+  flex-wrap: wrap;
+}
+
+.meubles .card {
+  width: 430px;
+  height: 229px;
+  flex-shrink: 0;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background: #fff;
+}
+
+.meubles .card .name {
+  display: flex;
+  width: 172.913px;
+  height: 53.499px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+/*
+  font-weight: bold;
+}
+.buy-button {
+  display: block;
+  width: 35%;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  background-color: #2522223c;
+  color: rgb(10, 10, 10);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 32%;
+  font-weight: bold;
+  text-decoration: none;
+}
+.card button:hover {
+  background-color: rgb(250, 245, 245); /* Couleur de fond lors du survol */
+  color: #161515; /* Couleur du texte lors du survol */
+  border: 2px solid rgb(213, 203, 203); /* Bordure lors du survol */
+  /* Ajoutez d'autres propriétés CSS pour personnaliser le survol */
+}
+*/
+}
+
 .card-content .type,
 .card-content .prix {
   color: #000;
@@ -208,12 +297,14 @@
   font-weight: bold;
   text-decoration: none;
 }
+
 .card button:hover {
   background-color: rgb(250, 245, 245); /* Couleur de fond lors du survol */
   color: #161515; /* Couleur du texte lors du survol */
   border: 2px solid rgb(213, 203, 203); /* Bordure lors du survol */
   /* Ajoutez d'autres propriétés CSS pour personnaliser le survol */
 }
+
 input {
   display: flex;
   width: 600px;
@@ -222,6 +313,7 @@ input {
   align-items: center;
   flex-shrink: 0;
 }
+
 #checkbutton {
   display: flex;
   width: 200px;
@@ -238,6 +330,39 @@ input {
   line-height: normal;
   background-color: green;
 }
+
+.admin-container {
+  text-align: center;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.table-row-header {
+  font-weight: bold;
+}
+
+.table-row-header,
+.table-row-data {
+  flex-basis: 16.66%;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
 .filtres {
   display: flex;
   height: 99px;
@@ -246,6 +371,7 @@ input {
   align-items: center;
   flex-shrink: 0;
 }
+
 .filtres input[type="text"] {
   width: 300px;
   height: 40px;
@@ -255,6 +381,7 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+/*
 .filtres input[type="text"]:focus {
   outline: none;
   border-color: #000;
@@ -346,4 +473,10 @@ input {
 
 .dropdown h4 {
   text-decoration: underline;
+}
+*/
+
+.filtres input[type="text"]:focus {
+  outline: none;
+  border-color: #000;
 }
