@@ -1,6 +1,7 @@
 .accueil-container {
   background: rgb(215 209 209 / 73%);
   overflow-x: hidden;
+}
 .App {
   height: 3080px;
   background: rgba(255, 255, 255, 0.73);
