@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, ValidationError, Res } from '@nestjs/common';
+import { Body, Controller, Get, Delete, HttpCode, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, ValidationError, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { CreateUserDto } from 'src/user/dtos/CreateUser.dto';
 import { UpdateUserDto } from 'src/user/dtos/UpdateUser.dto';
@@ -13,6 +13,12 @@ export class UserController {
     async getUsers() {
         const users = await this.userService.findUsers();
         return users;
+    }
+
+    @Get(':id')
+    async getSingleUsers(@Param('id', ParseIntPipe) id: number) {
+        const user = await this.userService.findUsersById(id);
+        return user;
     }
 
     @Post()
@@ -64,6 +70,7 @@ export class UserController {
         // Pour des raisons de sécurité, on utiliserait { httpOnly: true } en plus dans le cookie pour qu'il n'y ait pas de script qui puisse être exécuté côté client
         // Par manque de temps on passera sur cette question de sécurité
         response.cookie('userId', userId);
+
         // Check if the user is the admin
         if (isAdmin) {
             responseObject.isAdmin = "C\'est Fleury !!!";
@@ -72,5 +79,10 @@ export class UserController {
         }
 
         return response.status(HttpStatus.OK).json(responseObject);
+    }
+
+    @Delete(':id')
+    async deleteUserById(@Param('id', ParseIntPipe) id: number) {
+        await this.userService.deleteUser(id);
     }
 }

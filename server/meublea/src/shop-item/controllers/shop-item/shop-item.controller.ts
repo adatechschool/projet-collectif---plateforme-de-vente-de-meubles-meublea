@@ -16,7 +16,7 @@ import { PatchShopItemDto } from 'src/shop-item/dtos/PatchShopItem.dto';
 
 @Controller('shop-item')
 export class ShopItemController {
-  constructor(private shopItemService: ShopItemService) {}
+  constructor(private shopItemService: ShopItemService) { }
 
   @Get()
   getShopItems() {

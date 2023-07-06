@@ -47,7 +47,7 @@ export class ShopItem {
     }
   }
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: "CASCADE" })
   @JoinColumn({ name: 'reserved_by' })
   user: User;
 

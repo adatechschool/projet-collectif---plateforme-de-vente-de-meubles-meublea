@@ -5,7 +5,6 @@ import Inscription from "./Components/Inscription.jsx";
 import Contact from "./Components/Contact.jsx";
 import Connexion from "./Components/Connexion.jsx";
 import Accueil from "./Components/Accueil.jsx";
-
 import FurnitureCreation from "./Components/FurnitureCreation.jsx"; // Nouvelle importation
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
