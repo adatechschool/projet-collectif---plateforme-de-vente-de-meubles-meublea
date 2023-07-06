@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "./Images/Logo.png";
 import Cookies from 'js-cookie';
+
 // Permet de lier les différentes pages à la page de navigation
 const Nav = () => {
 

@@ -1,46 +1,63 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import baniere from "./Images/Magasin.jpg";
-import img from "./Images/image-2.png"
+import img from "./Images/image-2.png";
 import "./Limite";
 
 const Accueil = () => {
-    useEffect(() => {
-        getAllFurnitures();
-    }, [])
-    const [furnitures, setfurnitures] = useState([])
-    const getAllFurnitures = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-        const allFurnitures = await response.json() //récuperation d'un tableau avec les données de l'api
-        console.log(allFurnitures)
-        setfurnitures(allFurnitures)
-    };
+  const [furnitures, setFurnitures] = useState([]);
 
-    return (
-        <div>
-            <div className="Description">
-                <img src={baniere} alt="Facade magasin" />
-                <div className="cadre">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-            <div className="filtres">
-                <div></div>
-            </div>
-            <div className="decoration">
-            </div>
-            <div className="meubles">
-                {/* Le nombre en paramétre est le nombre d'éléments qui s'affichera sur la page d'accueil */}
-                {furnitures.take(9).map((user) => (
-                    <div className="card" key={user.id}>
-                        <img src={img} alt="test photo" />
-                        <p className="name">Name: {user.name}</p>
-                        <p className="type">Username: {user.username}</p>
-                        <p className="prix">Email: {user.email}</p>
-                    </div>
-                ))}
-            </div>
+  useEffect(() => {
+    getAllFurnitures();
+  }, []);
+
+  const getAllFurnitures = async () => {
+    const response = await fetch(`http://localhost:3000/shop-item/`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    const allFurnitures = await response.json();
+    console.log(allFurnitures);
+    setFurnitures(allFurnitures);
+  };
+
+  const goToProfile = (userId) => {
+    // Code pour naviguer vers la page du profil de l'utilisateur avec l'ID spécifié
+    console.log("Navigating to profile page of user:", userId);
+  };
+
+  return (
+    <div className="accueil-container">
+      <div className="header-container">{/* Contenu du header */}</div>
+      <div className="Description">
+        <img src={baniere} alt="Facade magasin" />
+        <div className="cadre">
+          <p>bienvenue</p>
         </div>
-    );
-}
+      </div>
+      <div className="filtres">
+        <div></div>
+      </div>
+      <div className="decoration"></div>
+      <div className="meubles">
+        {furnitures.slice(0, 9).map((user) => (
+          <div className="card" key={user.id}>
+            <div className="card-image">
+              <img src={img} alt="test photo" />
+            </div>
+            <div className="card-content">
+              <p className="name">{user.name}</p>
+              <p className="type">type : {}</p>
+              <p className="prix">prix : {}</p>
+              <a href={`/profil/${user.id}`} className="buy-button">
+                Acheter
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Accueil;
