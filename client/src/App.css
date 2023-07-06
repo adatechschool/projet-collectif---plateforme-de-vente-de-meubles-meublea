@@ -1,193 +1,349 @@
-.App {
-    height: 3080px;
-    background: rgba(255, 255, 255, 0.73);
-}
+/* .App {
+  height: 3080px;
+  background: rgba(255, 255, 255, 0.73);
+} */
 
+.accueil-container {
+  background: rgb(215 209 209 / 73%);
+  overflow-x: hidden;
+}
 .Header {
-    display: flex;
-    height: 78px;
-    padding: 12px 40px;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-    border-bottom: 6px solid #000;
-    background: #FFF;
-    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+  display: flex;
+  padding: 2px 40px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border-bottom: 6px solid #000;
+  background: #fff;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
-
 .Header .Logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .Header .Logo img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
-
 .Header .Logo h2 {
-    display: flex;
-    width: 130px;
-    height: 45px;
-    flex-direction: column;
-    justify-content: center;
-    color: #000;
-    text-align: center;
-    font-size: 25px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  display: flex;
+  width: 130px;
+  height: 45px;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  font-size: 25px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-
 .Header a {
-    color: #000;
-    font-size: 14px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
-
 .Header .links {
-    display: flex;
-    width: 716px;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
+  display: flex;
+  width: 716px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
 }
-
 .Header .log {
-    display: flex;
-    padding: 12px;
-    align-items: flex-start;
-    gap: 10px;
-    border-radius: 8px;
-    background: #000;
+  display: flex;
+  padding: 12px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 8px;
+  background: #000;
 }
-
 .Header .log a {
-    color: #FFF;
-    font-size: 14px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: #fff;
+  font-size: 14px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
-
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Couleur de fond du header */
+  z-index: 999; /* Pour s'assurer que le header s'affiche par-dessus le reste du contenu */
+}
 .Description img {
-    width: 100%;
-    border-bottom: 3px solid #000;
-    background: lightgray 50% / cover no-repeat;
+  width: 100%;
+  border-bottom: 3px solid #000;
+  background: lightgray 50% / cover no-repeat;
 }
-
 .Description .cadre {
-    position: absolute;
-    left: 54px;
-    bottom: 30px;
-    width: 762px;
-    height: 384px;
-    background: rgba(195, 195, 195, 0.60);
+  position: absolute;
+  left: 54px;
+  bottom: 30px;
+  width: 762px;
+  height: 384px;
+  background: rgba(195, 195, 195, 0.6);
 }
-
 .Description .cadre p {
-    display: flex;
-    position: absolute;
-    left: 60px;
-    bottom: 50px;
-    width: 649px;
-    height: 231px;
-    flex-direction: column;
-    justify-content: center;
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    font-family: Judson;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
+  display: flex;
+  position: absolute;
+  left: 60px;
+  bottom: 50px;
+  width: 649px;
+  height: 231px;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-family: Judson;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
 }
-
 .filtres {
-    display: flex;
-    height: 99px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+  display: flex;
+  height: 99px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
-
 .filtres div {
-    width: 1384px;
-    height: 79px;
-    background: #D9D9D9;
-    flex-shrink: 0;
+  width: 1384px;
+  height: 79px;
+  background: #d9d9d9;
+  flex-shrink: 0;
 }
-
 .decoration {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 23px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 23px;
 }
-
 .meubles {
-    display: flex;
-    width: 1510px;
-    align-items: center;
-    align-content: flex-start;
-    gap: 120px 90px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
-
-.meubles .card {
-    width: 430px;
-    height: 229px;
-    flex-shrink: 0;
-    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    background: #FFF;
+.card {
+  flex-basis: calc(
+    30.33% - 9px
+  ); /* Permet d'obtenir 3 éléments par ligne avec un espace de 20px entre eux */
+  margin: 28px 10px;
+  display: flex;
 }
-
-.meubles .card .name {
-    display: flex;
-    width: 172.913px;
-    height: 53.499px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    font-family: Amaranth;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.card-image {
+  width: 40%;
+  display: flex;
+  align-items: center;
 }
-
+.card-image img {
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+}
+.card-content {
+  width: 60%;
+  padding: 10px;
+  background: #fff;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.card-content .name {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+.card-content .type,
+.card-content .prix {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-weight: bold;
+}
+.buy-button {
+  display: block;
+  width: 35%;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  background-color: #2522223c;
+  color: rgb(10, 10, 10);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 32%;
+  font-weight: bold;
+  text-decoration: none;
+}
+.card button:hover {
+  background-color: rgb(250, 245, 245); /* Couleur de fond lors du survol */
+  color: #161515; /* Couleur du texte lors du survol */
+  border: 2px solid rgb(213, 203, 203); /* Bordure lors du survol */
+  /* Ajoutez d'autres propriétés CSS pour personnaliser le survol */
+}
 input {
-    display: flex;
-    width: 600px;
-    height: 58px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+  display: flex;
+  width: 600px;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+#checkbutton {
+  display: flex;
+  width: 200px;
+  height: 28px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: green;
+}
+.filtres {
+  display: flex;
+  height: 99px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+.filtres input[type="text"] {
+  width: 300px;
+  height: 40px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.filtres input[type="text"]:focus {
+  outline: none;
+  border-color: #000;
 }
 
-#checkbutton {
-    display: flex;
-    width: 200px;
-    height: 28px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    font-family: Amaranth;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background-color: green;
+.product-container {
+  width: 100%;
+
+  flex-shrink: 0;
+  display: flex;
+}
+
+.product-image {
+  /* margin-right: 70px; */
+
+  width: 50%;
+}
+
+.product-image img {
+  width: 100%;
+
+  flex-shrink: 0;
+}
+
+.product-images-row {
+  display: flex;
+  justify-content: center;
+}
+
+.product-images-row img {
+  width: 33%;
+
+  flex-shrink: 0;
+}
+
+.product-details {
+  width: 40%;
+  /* height: 120px;  */
+
+  flex-shrink: 0;
+  border: 5px solid #000;
+  border-radius: 15px;
+  background: #b8b2b2;
+  background-color: transparent;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-left: auto;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.buy-button {
+  background-color: #090a09;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+  margin-left: 20px;
+}
+
+.buy-button:hover {
+  background-color: #006600;
+}
+
+.home-button {
+  background-color: #090a09;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.home-button:hover {
+  background-color: #006600;
+}
+
+.More-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.dropdown h4 {
+  text-decoration: underline;
 }
