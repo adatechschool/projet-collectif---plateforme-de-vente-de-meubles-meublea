@@ -1,11 +1,13 @@
+/* .App {
+  height: 3080px;
+  background: rgba(255, 255, 255, 0.73);
+} */
+
 .accueil-container {
   background: rgb(215 209 209 / 73%);
   overflow-x: hidden;
 }
-.App {
-  height: 3080px;
-  background: rgba(255, 255, 255, 0.73);
-}
+
 .Header {
   display: flex;
   height: 78px;
@@ -23,11 +25,6 @@
   width: 100%;
   z-index: 999;
 }
-
-/* .Header :hover{
-    background-color: #000;
-    color:#FFF
-} */
 
 .Header .Logo {
   display: flex;
@@ -99,7 +96,6 @@
   z-index: 999; /* Pour s'assurer que le header s'affiche par-dessus le reste du contenu */
 
 }
-
 .Description img {
   width: 100%;
   border-bottom: 3px solid #000;
@@ -201,6 +197,15 @@
   font-family: Amaranth;
   font-style: normal;
   font-weight: bold;
+/*
+  line-height: normal;
+}
+.card-content .type,
+.card-content .prix {
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+*/
   width: 1510px;
   align-items: center;
   align-content: flex-start;
@@ -231,6 +236,35 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+/*
+  font-weight: bold;
+}
+.buy-button {
+  display: block;
+  width: 35%;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: Amaranth;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  background-color: #2522223c;
+  color: rgb(10, 10, 10);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 32%;
+  font-weight: bold;
+  text-decoration: none;
+}
+.card button:hover {
+  background-color: rgb(250, 245, 245); /* Couleur de fond lors du survol */
+  color: #161515; /* Couleur du texte lors du survol */
+  border: 2px solid rgb(213, 203, 203); /* Bordure lors du survol */
+  /* Ajoutez d'autres propriétés CSS pour personnaliser le survol */
+}
+*/
 }
 
 .card-content .type,
@@ -263,12 +297,14 @@
   font-weight: bold;
   text-decoration: none;
 }
+
 .card button:hover {
   background-color: rgb(250, 245, 245); /* Couleur de fond lors du survol */
   color: #161515; /* Couleur du texte lors du survol */
   border: 2px solid rgb(213, 203, 203); /* Bordure lors du survol */
   /* Ajoutez d'autres propriétés CSS pour personnaliser le survol */
 }
+
 input {
   display: flex;
   width: 600px;
@@ -326,6 +362,7 @@ input {
   display: flex;
   gap: 8px;
 }
+
 .filtres {
   display: flex;
   height: 99px;
@@ -344,6 +381,100 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+/*
+.filtres input[type="text"]:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.product-container {
+  width: 100%;
+
+  flex-shrink: 0;
+  display: flex;
+}
+
+.product-image {
+  /* margin-right: 70px; */
+
+  width: 50%;
+}
+
+.product-image img {
+  width: 100%;
+
+  flex-shrink: 0;
+}
+
+.product-images-row {
+  display: flex;
+  justify-content: center;
+}
+
+.product-images-row img {
+  width: 33%;
+
+  flex-shrink: 0;
+}
+
+.product-details {
+  width: 40%;
+  /* height: 120px;  */
+
+  flex-shrink: 0;
+  border: 5px solid #000;
+  border-radius: 15px;
+  background: #b8b2b2;
+  background-color: transparent;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-left: auto;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.buy-button {
+  background-color: #090a09;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+  margin-left: 20px;
+}
+
+.buy-button:hover {
+  background-color: #006600;
+}
+
+.home-button {
+  background-color: #090a09;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.home-button:hover {
+  background-color: #006600;
+}
+
+.More-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.dropdown h4 {
+  text-decoration: underline;
+}
+*/
 
 .filtres input[type="text"]:focus {
   outline: none;
